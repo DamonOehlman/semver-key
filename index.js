@@ -18,9 +18,16 @@ var MAXVAL = Math.pow(2, 16);
     components of a semantic version.
 
   - The packed output of `semver-key` is lexicographic sorted such that the
-    latest version will always be the first entry found in something like
+    latest version will always be the **first** entry found in something like
     leveldb.  Basically, if `a` > `b` from a semver sense, the packed order
     will be `b` < `a`.
+
+  ## Example Usage
+
+  Consider the following example showing how a `semver-key` packed value can
+  be used in a leveldb instance:
+
+  <<< examples/leveldown.js
 **/
 var key = module.exports = function(version) {
   var parts;
