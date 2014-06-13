@@ -49,7 +49,7 @@ var key = module.exports = function(version) {
   parts = new Uint16Array(('' + version).split('.').map(function(part) {
     var val = +part;
 
-    invalid = invalid || isNaN(val) || (val > MAXVAL);
+    invalid = invalid || isNaN(val) || (val >= MAXVAL);
     return ~val;
   }));
 
