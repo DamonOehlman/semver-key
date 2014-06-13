@@ -1,4 +1,6 @@
+var lexinum = require('lexinum');
 var semver = require('semver');
+var MAXVAL = Math.pow(2, 16);
 
 /**
   # semver-key
@@ -22,14 +24,19 @@ var semver = require('semver');
 **/
 var pack = module.exports = function(version) {
   var parts;
+  var value = 0;
 
   // ensure we have a valid version, or default to 0.0.0
   version = semver.valid(version) || '0.0.0';
 
   // extract the parts and convert to numeric values
-  parts = parts.split('.').map(function(part) {
-    return +part;
-  });
+  parts = new Uint16Array(version.split('.').map(function(part) {
+    return ~+part;
+  }));
 
-  console.log(parts);
+  for (var ii = 0; ii < parts.length; ii++) {
+    value = value * (ii > 0 ? MAXVAL : 1) + parts[ii];
+  }
+
+  return lexinum(value);
 };
