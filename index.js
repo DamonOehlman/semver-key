@@ -1,5 +1,4 @@
 var lexinum = require('lexinum');
-var semver = require('semver');
 var MAXVAL = Math.pow(2, 16);
 
 /**
