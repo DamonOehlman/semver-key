@@ -41,6 +41,16 @@ test('23123.2343.344', function(t) {
   t.equal(key(t.name), 'P0182162294374055');
 });
 
+test('65535.65535.65535', function(t) {
+  t.plan(1);
+  t.equal(key(t.name), 'P0000000000000000');
+});
+
+test('65535.65535.65536', function(t) {
+  t.plan(1);
+  t.equal(key(t.name), null);
+});
+
 test('2.0.0', function(t) {
   t.plan(1);
   t.equal(key(t.name), 'P0281466386776063');
