@@ -24,5 +24,8 @@
   "homepage": "https://github.com/DamonOehlman/semver-key",
   "devDependencies": {
     "tape": "^2"
+  },
+  "dependencies": {
+    "semver": "^2"
   }
 }
