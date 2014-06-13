@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/DamonOehlman/semver-key",
   "devDependencies": {
+    "async": "^0.9.0",
+    "leveldown": "~0.10",
     "semver": "^2",
     "tape": "^2"
   },
