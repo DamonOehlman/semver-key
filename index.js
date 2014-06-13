@@ -22,21 +22,45 @@ var MAXVAL = Math.pow(2, 16);
     leveldb.  Basically, if `a` > `b` from a semver sense, the packed order
     will be `b` < `a`.
 **/
-var pack = module.exports = function(version) {
+var key = module.exports = function(version) {
   var parts;
   var value = 0;
+  var invalid = false;
 
-  // ensure we have a valid version, or default to 0.0.0
-  version = semver.valid(version) || '0.0.0';
+  if (typeof version == 'number') {
+    version = (version | 0) + '.0.0';
+  }
+
+  if (! version) {
+    return null;
+  }
 
   // extract the parts and convert to numeric values
-  parts = new Uint16Array(version.split('.').map(function(part) {
-    return ~+part;
+  parts = new Uint16Array(('' + version).split('.').map(function(part) {
+    var val = +part;
+
+    invalid = invalid || isNaN(val) || (val > MAXVAL);
+    return ~val;
   }));
+
+  if (invalid) {
+    return null;
+  }
 
   for (var ii = 0; ii < parts.length; ii++) {
     value = value * (ii > 0 ? MAXVAL : 1) + parts[ii];
   }
 
   return lexinum(value);
+};
+
+key.unpack = function(input) {
+  var value = lexinum.unpack(input);
+  var parts = new Uint16Array([
+    ~(value / (MAXVAL * MAXVAL)),
+    ~(value / MAXVAL),
+    ~value
+  ]);
+
+  return parts[0] + '.' + parts[1] + '.' + parts[2];
 };
