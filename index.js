@@ -13,13 +13,17 @@ var MAXVAL = Math.pow(2, 16);
   [padded-semver](https://github.com/dominictarr/padded-semver) package with
   the following differences:
 
-  - At this stage, `semver-key` only supports the `major.minor.release`
+  - `semver-key` only supports the `major.minor.release`
     components of a semantic version.
 
   - The packed output of `semver-key` is lexicographic sorted such that the
     latest version will always be the **first** entry found in something like
     leveldb.  Basically, if `a` > `b` from a semver sense, the packed order
     will be `b` < `a`.
+
+  - The maximum value for an individual version component is `65535` (i.e.
+    the most significant version supported by `semver-key` is
+    `65535.65535.65535`).
 
   ## Example Usage
 
