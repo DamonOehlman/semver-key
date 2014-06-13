@@ -1,6 +1,6 @@
 {
   "name": "semver-key",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A key encoding strategy for semver strings, designed for use with leveldb and other lexicographic sorting scenarios",
   "main": "index.js",
   "scripts": {
