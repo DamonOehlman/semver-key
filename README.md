@@ -1,30 +1,13 @@
-# semver-key
+# slimver-key
 
 This is a simple package that is designed to be able to pack and unpack
-semver strings into lexigraphically sortable strings.
+[slimver](https://github.com/DamonOehlman/slimver-spec) strings into
+lexigraphically sortable strings.
 
 
-[![NPM](https://nodei.co/npm/semver-key.png)](https://nodei.co/npm/semver-key/)
+[![NPM](https://nodei.co/npm/slimver-key.png)](https://nodei.co/npm/slimver-key/)
 
-[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/DamonOehlman/semver-key.svg?branch=master)](https://travis-ci.org/DamonOehlman/semver-key) 
-
-## Why?
-
-This is very similar to the
-[padded-semver](https://github.com/dominictarr/padded-semver) package with
-the following differences:
-
-- `semver-key` only supports the `major.minor.release`
-  components of a semantic version.
-
-- The packed output of `semver-key` is lexicographic sorted such that the
-  latest version will always be the **first** entry found in something like
-  leveldb.  Basically, if `a` > `b` from a semver sense, the packed order
-  will be `b` < `a`.
-
-- The maximum value for an individual version component is `65535` (i.e.
-  the most significant version supported by `semver-key` is
-  `65535.65535.65535`).
+[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/badges/stability-badges) [![Build Status](https://img.shields.io/travis/DamonOehlman/slimver-key.svg?branch=master)](https://travis-ci.org/DamonOehlman/slimver-key) 
 
 ## Example Usage
 
@@ -34,7 +17,7 @@ be used in a leveldb instance:
 ```js
 var async = require('async');
 var leveldown = require('leveldown');
-var key = require('semver-key');
+var key = require('slimver-key');
 var db = leveldown(__dirname + '/data');
 
 // initialise a few test versions
