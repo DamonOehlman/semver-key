@@ -29,7 +29,7 @@
     "tape": "^2"
   },
   "dependencies": {
-    "lexinum": "^0.1.3",
-    "slimver": "0.0.2"
+    "lexinum": "~0.1",
+    "slimver": "~0.1"
   }
 }
