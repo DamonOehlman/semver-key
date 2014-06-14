@@ -1,6 +1,6 @@
 {
   "name": "slimver-key",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A key encoding strategy for slimver version strings, designed for use with leveldb and other lexicographic sorting scenarios",
   "main": "index.js",
   "scripts": {
