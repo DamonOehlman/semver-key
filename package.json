@@ -1,7 +1,7 @@
 {
-  "name": "semver-key",
+  "name": "slimver-key",
   "version": "0.1.1",
-  "description": "A key encoding strategy for semver strings, designed for use with leveldb and other lexicographic sorting scenarios",
+  "description": "A key encoding strategy for slimver version strings, designed for use with leveldb and other lexicographic sorting scenarios",
   "main": "index.js",
   "scripts": {
     "test": "node test/all.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DamonOehlman/semver-key.git"
+    "url": "https://github.com/DamonOehlman/slimver-key.git"
   },
   "keywords": [
     "semver",
@@ -19,9 +19,9 @@
   "author": "Damon Oehlman <damon.oehlman@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DamonOehlman/semver-key/issues"
+    "url": "https://github.com/DamonOehlman/slimver-key/issues"
   },
-  "homepage": "https://github.com/DamonOehlman/semver-key",
+  "homepage": "https://github.com/DamonOehlman/slimver-key",
   "devDependencies": {
     "async": "^0.9.0",
     "leveldown": "~0.10",
@@ -29,6 +29,7 @@
     "tape": "^2"
   },
   "dependencies": {
-    "lexinum": "^0.1.3"
+    "lexinum": "^0.1.3",
+    "slimver": "0.0.1"
   }
 }
