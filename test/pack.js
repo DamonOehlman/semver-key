@@ -1,4 +1,5 @@
 var test = require('tape');
+var slim = require('slimver');
 var key = require('../');
 
 test('0.0.0', function(t) {
@@ -26,9 +27,9 @@ test('1.0.0', function(t) {
   t.equal(key(t.name), 'P0281470681743359');
 });
 
-test('1 as a number encodes as 1.0.0', function(t) {
+test('slimver encoded numerics encode correctly', function(t) {
   t.plan(1);
-  t.equal(key(1), 'P0281470681743359');
+  t.equal(key(slim('1.0.0')), 'P0281470681743359');
 });
 
 test('1.0.1', function(t) {
